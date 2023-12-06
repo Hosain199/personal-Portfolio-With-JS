@@ -3,7 +3,13 @@ const path = require('path')
 const express = require('express');
 const app = express() //app is my backend site
 
-app.get('/', function (req, res) {
+
+//import the conroller
+
+const authController = require('./controllers/authController');
+
+
+app.get('/home', function (req, res) {
     //res.sendFile('D:/Programming language/JS/views/Home.html')
     //res.sendFile(__dirname + "/views/Home.html")
     res.sendFile(path.join(__dirname, "views", "Home.html"))
@@ -16,6 +22,8 @@ app.get('/About', function (req, res) {
 app.get('/Contact', function (req, res) {
     res.sendFile(path.join(__dirname, "views", "Contact.html"))
 })
+
+app.use('/', authController);
 
 app.get('*', function (req, res) {  //'*' use for unused page
     res.sendFile(path.join(__dirname, "views", "404.html"))
