@@ -1,5 +1,6 @@
 // import some package
 const path = require('path')
+const ejs = require('ejs')
 const express = require('express');
 const app = express() //app is my backend site
 
@@ -9,10 +10,21 @@ const app = express() //app is my backend site
 const authController = require('./controllers/authController');
 
 
-app.get('/home', function (req, res) {
+//middlewhere
+
+//templating engine
+app.set('view engine', 'ejs')
+
+
+
+app.get('/', function (req, res) {
     //res.sendFile('D:/Programming language/JS/views/Home.html')
     //res.sendFile(__dirname + "/views/Home.html")
-    res.sendFile(path.join(__dirname, "views", "Home.html"))
+    //res.sendFile(path.join(__dirname, "views", "Home.html"))
+
+    res.render('demo')
+
+
 })
 
 app.get('/About', function (req, res) {

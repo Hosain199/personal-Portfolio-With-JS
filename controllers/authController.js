@@ -13,3 +13,4 @@ router.get('/Register', function (req, res) {
 
 
 module.exports = router;
+
