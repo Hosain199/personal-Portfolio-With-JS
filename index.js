@@ -1,6 +1,8 @@
 // import some package
 const path = require('path')
+const DB = require('./helpers/DB')
 const ejs = require('ejs')
+const bodyParser = require('body-parser')
 const express = require('express');
 const app = express() //app is my backend site
 
@@ -11,6 +13,19 @@ const authController = require('./controllers/authController');
 
 
 //middlewhere
+
+//dotenv
+const config = require('./config');
+// console.log(process.env.PORT)
+
+
+//bodyparser
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
 
 //templating engine
 app.set('view engine', 'ejs')
@@ -51,5 +66,17 @@ app.get("*", (req, res) => { //'*' use for unused page
 
 
 })
+//  connect DB
+
+DB.ConnectMongo();
+
+
+
+
+const PORT = process.env.PORT;
 //Listening a port 
-app.listen(3000)
+
+// app.listen(3000)
+
+app.listen(PORT, () =>
+  console.log(`server is listening on port: ${PORT}`));
