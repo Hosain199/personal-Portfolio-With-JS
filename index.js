@@ -17,28 +17,39 @@ app.set('view engine', 'ejs')
 
 
 
-app.get('/', function (req, res) {
+app.get("/", (req, res) => {
     //res.sendFile('D:/Programming language/JS/views/Home.html')
     //res.sendFile(__dirname + "/views/Home.html")
     //res.sendFile(path.join(__dirname, "views", "Home.html"))
 
-    res.render('demo')
+    //res.render('demo', {pageTitle: "Home", text: "Hosain Mahmud"});   //object pass
+
+    res.render("pages/Home", {pageTitle: "Home", text: "From Home"})
 
 
 })
 
-app.get('/About', function (req, res) {
-    res.sendFile(path.join(__dirname, "views", "About.html"))
+app.get("/about", (req, res) => {
+    //res.sendFile(path.join(__dirname, "views", "About.html"))
+    res.render("pages/About", {pageTitle: "About", text: "From about"})
+
+
 })
 
-app.get('/Contact', function (req, res) {
-    res.sendFile(path.join(__dirname, "views", "Contact.html"))
+app.get("/contact", (req, res) => {
+   // res.sendFile(path.join(__dirname, "views", "Contact.html"))
+   res.render("pages/Contact", {pageTitle: "Contact", text: "From contact"})
+
+
 })
 
 app.use('/', authController);
 
-app.get('*', function (req, res) {  //'*' use for unused page
-    res.sendFile(path.join(__dirname, "views", "404.html"))
+app.get("*", (req, res) => { //'*' use for unused page
+    //res.sendFile(path.join(__dirname, "views", "404.html"))
+    res.render("pages/404", {pageTitle: "Not Found", text: "Invalid Page search"})
+
+
 })
 //Listening a port 
 app.listen(3000)
