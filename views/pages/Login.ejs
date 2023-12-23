@@ -11,16 +11,27 @@
 
 <form action="/Login" method="POST">
     <!-- Email input -->
-    <div class="form-outline mb-4">
-      <input type="email" name="email" id="form2Example1" class="form-control" />
-      <label class="form-label" for="form2Example1">Email address</label>
+    <div class="form-outline mb-4 has-validation">
+      <label class="form-label" for="form2Example1"><b>Email address</b></label>
+      
+      <input type="email" value="<%=old.email %>" name="email" id="form2Example1" class="form-control" />
+      
+      <div class="text-danger">
+        <%= errors.email %>
+      </div>
     </div>
+
   
     <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" name="password" id="form2Example2" class="form-control" />
-      <label class="form-label" for="form2Example2">Password</label>
+    <div class="form-outline mb-4 has-validation">
+      <label class="form-label" for="form2Example2"><b>Password</b></label>
+      <input type="password" value="<%=old.password %>"name="password" id="form2Example2" class="form-control" />
+      
+    <div class="text-danger">
+      <%= errors.password %>
     </div>
+    </div>
+
   
     <!-- 2 column grid layout for inline styling -->
     <div class="row mb-4">

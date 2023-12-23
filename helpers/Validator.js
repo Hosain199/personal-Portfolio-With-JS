@@ -65,7 +65,7 @@ class Validator {
   // }
   
   // console.log(Validator.LoginValidator(data))
-  // console.log(Validator.isValidEmail("done@gmail.com"))
+  // console.log(Validator.isValidEmail("ok@gmail.com"))
   
   module.exports = {Validator}
   
