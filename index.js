@@ -1,6 +1,6 @@
 // import some package
 const path = require('path')
-const DB = require('./helpers/DB')
+const {DB}= require('./helpers/DB');
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
 const express = require('express');
@@ -15,7 +15,7 @@ const authController = require('./controllers/authController');
 //middlewhere
 
 //dotenv
-const config = require('./config');
+require('./config');
 // console.log(process.env.PORT)
 
 
@@ -69,6 +69,7 @@ app.get("*", (req, res) => { //'*' use for unused page
 //  connect DB
 
 DB.ConnectMongo();
+
 
 
 

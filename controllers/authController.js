@@ -1,6 +1,8 @@
+const {validator} = require('../helpers/Validator')
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const User = require('../models/user')
 
 
 // router.get('/Login', function (req, res) {
@@ -25,11 +27,13 @@ router.post("/login", (req, res) => {
 
 })
 
-
+//data validation
 
 router.get("/register", (req, res) => {
 
   res.render("pages/Register", { pageTitle: "Register Page", text: "From Register Page" })
+
+
 
 })
 
